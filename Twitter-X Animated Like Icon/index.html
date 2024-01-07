@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter X Animation-Like Icon</title>
+</head>
+<body>
+    
+    <div class="like__btn">
+        <input type="checkbox" name="icon" id="icon">
+        <label for="icon" class="icon">
+
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+            <div class="icons">+</div>
+
+            <div class="svg__wrapper">
+
+                <svg 
+                    class="svg-icon" 
+                    style="width: 5em; height: 5em;vertical-align: middle;fill: currentColor;overflow: hidden;" 
+                    viewBox="0 0 1024 1024" 
+                    version="1.1" 
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path 
+                        d="M511.896646 844.534606 177.872107 532.840654c-82.664721-77.16752-86.735433-206.788693-8.91709-289.017486 38.733163-40.901549 93.480045-64.358797 150.08832-64.358797 52.629661 0 102.662171 19.651572 141.005454 55.399751l51.888787 48.513924 51.934836-48.513924c38.394449-35.749202 88.420819-55.399751 141.04434-55.399751 56.615439 0 111.320365 23.503297 150.09446 64.443731 37.652552 39.774889 57.516971 91.750657 55.745628 146.369625-1.690502 54.531987-24.756847 105.208157-64.835657 142.561903L511.896646 844.534606 511.896646 844.534606zM511.896646 844.534606"  
+                    />
+                </svg>
+
+            </div>
+
+        </label>
+
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+
+        input[type="checkbox" i] {
+            display: none;
+        }
+
+        .like__btn {
+            cursor: pointer;
+        }
+
+        .icon {
+            position: relative;
+        }
+
+        .icons {
+            position: absolute;
+            inset: 0;
+            transition: all 300ms ease-in-out;
+            opacity: 0;
+        }
+
+        .icons:nth-child(1) {
+            transform: translate(14px, 18px);
+            color: red;
+        }
+
+        .icons:nth-child(2) {
+            transform: translate(77px, 18px);
+            color: red;
+        }
+
+        .icons:nth-child(3) {
+            transform: translate(45px, 17px);
+            color: red;
+        }
+
+        .icons:nth-child(4) {
+            transform: translate(20px, 50px);
+            color: red;
+        }
+
+        .icons:nth-child(5) {
+            transform: translate(72px, 50px);
+            color: red;
+        }
+
+        .icons:nth-child(6) {
+            transform: translate(45px, 75px);
+            color: red;
+        }
+
+        .icons:nth-child(7) {
+            transform: translate(6px, 10px);
+            color: green;
+        }
+
+        .icons:nth-child(8) {
+            transform: translate(85px, 10px);
+            color: green;
+        }
+
+        .svg__wrapper {
+            position: relative;
+            display: grid;
+            place-content: center;
+            width: 100px;
+            height: 100%;
+            aspect-ratio: 1;
+        }
+
+        .svg__wrapper::after {
+            content: "+1";
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            opacity: 0;
+        }
+
+        svg {
+            stroke-width: 50px;
+            stroke: red;
+        }
+
+        path {
+            fill: transparent;
+            transition: fill 300ms ease-in-out;
+        }
+
+        body:has(input:checked) path {
+            fill: red;
+        }
+
+        body:has(input:checked) .svg__wrapper::after {
+            animation: pop 1200ms linear;
+        }
+
+        body:has(input:checked) .icons:nth-child(1) {
+            animation: star__one__pop 1600ms ease-in-out;
+        }
+
+        body:has(input:checked) .icons:nth-child(2) {
+            animation: star__two__pop 1400ms linear;
+            animation-delay: 100ms;
+        }
+
+        body:has(input:checked) .icons:nth-child(3) {
+            animation: star__three__pop 1600ms ease-in-out;
+        }
+
+        body:has(input:checked) .icons:nth-child(4) {
+            animation: star__four__pop 1600ms ease-in-out;
+            animation-delay: 200ms;
+        }
+
+        body:has(input:checked) .icons:nth-child(5) {
+            animation: star__five__pop 1600ms ease-in-out;
+        }
+
+        body:has(input:checked) .icons:nth-child(6) {
+            animation: star__six__pop 1400ms linear;
+            animation-delay: 400ms;
+        }
+
+        body:has(input:checked) .icons:nth-child(7) {
+            color: green;
+            animation: star__seven__pop 800ms ease-in-out;
+            animation-delay: 800ms;
+        }
+
+        body:has(input:checked) .icons:nth-child(8) {
+            color: green;
+            animation: star__eight__pop 800ms ease-in-out;
+            animation-delay: 800ms;
+        }
+
+        @keyframes pop {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5);
+                color: white;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+                color: white;
+            }
+        }
+
+        @keyframes star__one__pop {
+            0% {
+                opacity: 0;
+                transform: translate(14px, 18px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(8px, 12px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(6px, 10px);                
+            }
+        }
+
+        @keyframes star__two__pop {
+            0% {
+                opacity: 0;
+                transform: translate(77px, 18px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(83px, 12px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(85px, 10px);                
+            }
+        }
+
+        @keyframes star__three__pop {
+            0% {
+                opacity: 0;
+                transform: translate(45px, 17px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(45px, 10px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(45px, 7px);                
+            }
+        }
+
+        @keyframes star__four__pop {
+            0% {
+                opacity: 0;
+                transform: translate(20px, 50px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(14px, 56px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(10px, 60px); 
+                color: green;               
+            }
+        }
+
+        @keyframes star__five__pop {
+            0% {
+                opacity: 0;
+                transform: translate(72px, 50px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(78px, 56px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(80px, 58px); 
+                color: green;               
+            }
+        }
+
+        @keyframes star__six__pop {
+            0% {
+                opacity: 0;
+                transform: translate(45px, 75px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(45px, 82px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(45px, 85px);               
+            }
+        }
+
+        @keyframes star__seven__pop {
+            0% {
+                opacity: 0;
+                transform: translate(6px, 12px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(4px, 8px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(2px, 6px);               
+            }
+        }
+
+        @keyframes star__eight__pop {
+            0% {
+                opacity: 0;
+                transform: translate(87px, 8px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(89px, 6px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(92px, 3px);               
+            }
+        }
+        
+    </style>
+</body>
+</html>
